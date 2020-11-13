@@ -3829,7 +3829,7 @@
 
 .ol-ext-dialog.ol-wmscapabilities form {
   max-height: calc(85% - 1em);
-  width: 600px;
+  width: 1200px;
   min-height: 15em;
   top: 15%;
   -webkit-transform: translate(-50%, 0);

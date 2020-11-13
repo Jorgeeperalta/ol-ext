@@ -29,32 +29,12 @@
 
 </head>
 <body >
-  <a href="https://github.com/Viglino/ol-ext" class="icss-github-corner"><i></i></a>
-
-  <a href="../../index.html">
-    <h1>ol-ext: Snap guides interaction</h1>
-  </a>
-  <div class="info">
-    <b>ol.interaction.SnapGuide</b> handles snapping of vector features using guides lines while modifying or drawing them. 
-    <br/>
-    The snap interaction modifies map browser event coordinate and pixel properties to force the snap to occur 
-    to any interaction that them.
-    <ul>
-      <li>
-        You can add guidelines to snap to.
-      </li><li>
-        You can set an <i>ol.interaction.Draw</i> (setDrawInteraction)to control orthogonal drawing (similar to <a href="https://github.com/geops/ole">OLE snapping</a> with OL2).
-      </li><li>
-        You can also set an <i>ol.interaction.Modify</i> (setModifyInteraction) to control orthogonal drawing while modifying.
-      </li><li>
-        <b>With ol6</b> use <i>ol/layer/VectorImage</i> class as <i>vectorClass</i> options to enhance drawing performances.
-      </li>
-    </ul>
-  </div>
-
+  
+ 
   <!-- Map div -->
-  <div id="map" style="width:600px; height:400px;"></div>
-
+  <div id="map" style="width:1200px; height:600px;"></div>
+  <button>coordenadas</button>
+  
   <div class="options" >
     <h2>Options:</h2>
     <ul><li>
@@ -71,8 +51,8 @@
     var map = new ol.Map ({
       target: 'map',
       view: new ol.View ({
-        zoom: 17,
-        center: [0, 6713891]
+        zoom: 7,
+        center: [-6326699.4315037215,-4367542.8252191935]
       }),
       controls: ol.control.defaults({ "attribution": false }),
       layers: layers
@@ -82,7 +62,9 @@
     var vector = new ol.layer.Vector({
       name: 'Vecteur',
       source: new ol.source.Vector({ features: new ol.Collection() }),
+     
     })
+    
     map.addLayer(vector);
 
     var drawi = new ol.interaction.Draw({
@@ -107,10 +89,13 @@
       var p1 = ol.proj.transform([x||0,1], 'EPSG:4326', map.getView().getProjection());
       var p2 = ol.proj.transform([x||0,-1], 'EPSG:4326', map.getView().getProjection());
       snapi.addGuide([ p1, p2 ]);
+      console.log(features+'nada')
+     
     };
     // Switch initial condition
     function setInitial (b) {
       snapi.enableInitialGuides_ = b;
+      console.log(features+'nada')
     };
 
   </script>

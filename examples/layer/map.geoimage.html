@@ -36,7 +36,7 @@
   <a href="https://github.com/Viglino/ol-ext" class="icss-github-corner"><i></i></a>
 
   <a href="../../index.html">
-    <h1>ol-ext: GeoImage source</h1>
+    <h1>GeoImage source</h1>
   </a>
   <p class="info">
     <i>ol.source.GeoImage</i> georeference images on a map.
@@ -48,7 +48,7 @@
   </p>
 
   <!-- DIV pour la carte -->
-  <div id="map" style="width:600px; height:400px;"></div>
+  <div id="map" style="width:900px; height:400px;"></div>
   
   <div class="options">
     <h2>Otions:</h2>
@@ -71,12 +71,12 @@
   
   <script type="text/javascript">
 
-  // The map
+  // The map     rotacion  
   var map = new ol.Map ({
     target: 'map',
     view: new ol.View ({
-      zoom: 14,
-      center: [274770, 6243929]
+      zoom: 10,
+      center: [-6326699.4315037215,-4367542.8252191935]
     }),
     layers: [ new ol.layer.Tile({ title:'OSM', source: new ol.source.OSM() }) ]
   });
@@ -97,14 +97,14 @@
     name: "Georef",
     opacity: .7,
     source: new ol.source.GeoImage({
-      url: '../data/IGNF_PVA_1-0__1976-03-24_pt.jpg',
+      url: 'https://i.ibb.co/M7nfv9j/imgTra.png',
       imageCenter: [x,y],
       imageScale: [sx,sy],
       imageCrop: [xmin,ymin,xmax,ymax],
-      //imageMask: [[273137.343,6242443.14],[273137.343,6245428.14],[276392.157,6245428.14],[276392.157,6242443.14],[273137.343,6242443.14]],
+     // imageMask: [[273137.343,6242443.14],[273137.343,6245428.14],[276392.157,6245428.14],[276392.157,6242443.14],[273137.343,6242443.14]],
       imageRotate: Number($("#rotate").val()*Math.PI/180),
       projection: 'EPSG:3857',
-      attributions: [ "<a href='http://www.geoportail.gouv.fr/actualite/181/telechargez-les-cartes-et-photographies-aeriennes-historiques'>Photo historique &copy; IGN</a>" ]
+      attributions: [ "<a href='https://i.ibb.co/ckZLpdQ/img-Invierno.jpg'>Photo historique &copy; IGN</a>" ]
     })
   });
   map.addLayer(geoimg);
